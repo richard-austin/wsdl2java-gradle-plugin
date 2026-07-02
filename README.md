@@ -7,7 +7,7 @@ A Gradle plugin for generating Java classes from WSDL files through CXF.
 
 ## Requirements and main features
 
-* The plugin requires Gradle 7.6 or later. (Tested with Gradle 7 and 8.)
+* The plugin requires Gradle 7.6 or later. (Tested with Gradle 7, 8, 9.6.0, and 10.)
 * For using the Jakarta namespace (default), the plugin requires Java 17 or greater. For the older javax namespace, you can use Java 8, 11 or 17.
 * It supports the Gradle build cache (enabled by setting `org.gradle.caching=true` in your gradle.properties file).
 * It supports the Gradle configuration cache (enabled by setting `org.gradle.configuration-cache=true` in your gradle.properties file").

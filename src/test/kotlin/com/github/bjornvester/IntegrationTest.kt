@@ -30,15 +30,34 @@ open class IntegrationTest {
                 .writeText(tempDir.resolve(PROPERTIES_FILE).readText().replace("org.gradle.configuration-cache=true", ""))
         }
 
-        GradleRunner
+        val runner = GradleRunner
             .create()
             .forwardOutput()
             .withProjectDir(tempDir)
+            .withTestKitDir(tempDir.resolve(".gradle-test-kit"))
             .withPluginClasspath()
             .withArguments("clean", "check", "-i", "-s", "--no-build-cache")
             .withGradleVersion(gradleVersion)
             .withDebug(isDebuggerAttached())
-            .build()
+
+        if (GradleVersion.version(gradleVersion) < GradleVersion.version("9.1.0")) {
+            tempDir.resolve(PROPERTIES_FILE)
+                .writeText(
+                    tempDir.resolve(PROPERTIES_FILE).readText() +
+                        "\norg.gradle.java.home=" + java17Home().absolutePath + "\n"
+                )
+        }
+
+        runner.build()
+    }
+
+    private fun java17Home(): File {
+        return listOfNotNull(
+            System.getenv("JAVA17_HOME"),
+            System.getenv("JDK17_HOME"),
+            "/usr/lib/jvm/java-17-openjdk-amd64"
+        ).map(::File).firstOrNull { it.exists() }
+            ?: error("Java 17 is required to run Gradle 7.6.x integration tests")
     }
 
     private fun copyIntegrationTestProject(tempDir: File) {
@@ -67,7 +86,8 @@ open class IntegrationTest {
             return Stream.of(
                 // Test various versions of Gradle
                 Arguments.of("7.6.1"), // Minimum required version of Gradle
-                Arguments.of("8.1.1")
+                Arguments.of("9.6.0"),
+                Arguments.of("10.0.0")
             )
         }
     }

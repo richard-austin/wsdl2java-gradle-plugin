@@ -1,6 +1,5 @@
 package com.github.bjornvester.wsdl2java
 
-import com.github.bjornvester.wsdl2java.Wsdl2JavaPlugin.Companion.WSDL2JAVA_EXTENSION_NAME
 import com.github.bjornvester.wsdl2java.Wsdl2JavaPluginExtension.Companion.GENERATED_STYLE_DEFAULT
 import com.github.bjornvester.wsdl2java.Wsdl2JavaPluginExtension.Companion.GENERATED_STYLE_JAKARTA
 import com.github.bjornvester.wsdl2java.Wsdl2JavaPluginExtension.Companion.GENERATED_STYLE_JDK8
@@ -26,41 +25,41 @@ abstract class Wsdl2JavaTask @Inject constructor(
 ) : DefaultTask() {
     @get:InputDirectory
     @get:PathSensitive(PathSensitivity.RELATIVE)
-    val wsdlInputDir = objects.directoryProperty().convention(getWsdl2JavaExtension().wsdlDir)
+    val wsdlInputDir = objects.directoryProperty()
 
     @get:Input
-    val includes = objects.listProperty(String::class.java).convention(getWsdl2JavaExtension().includes)
+    val includes = objects.listProperty(String::class.java)
 
     @get:Input
-    val includesWithOptions = objects.mapProperty(String::class.java, List::class.java).convention(getWsdl2JavaExtension().includesWithOptions)
+    val includesWithOptions = objects.mapProperty(String::class.java, List::class.java)
 
     @get:InputFile
     @get:PathSensitive(PathSensitivity.RELATIVE)
     @Optional
-    val bindingFile = objects.fileProperty().convention(getWsdl2JavaExtension().bindingFile)
+    val bindingFile = objects.fileProperty()
 
     @get:Input
     @Optional
-    val options = objects.listProperty(String::class.java).convention(getWsdl2JavaExtension().options)
+    val options = objects.listProperty(String::class.java)
 
     @get:Input
     @Optional
-    val verbose = objects.property(Boolean::class.java).convention(getWsdl2JavaExtension().verbose)
+    val verbose = objects.property(Boolean::class.java)
 
     @get:Input
-    val suppressGeneratedDate = objects.property(Boolean::class.java).convention(getWsdl2JavaExtension().suppressGeneratedDate)
-
-    @get:Input
-    @Optional
-    val markGenerated = objects.property(Boolean::class.java).convention(getWsdl2JavaExtension().markGenerated)
+    val suppressGeneratedDate = objects.property(Boolean::class.java)
 
     @get:Input
     @Optional
-    val generatedStyle = objects.property(String::class.java).convention(getWsdl2JavaExtension().generatedStyle)
+    val markGenerated = objects.property(Boolean::class.java)
 
     @get:Input
     @Optional
-    val packageName = objects.property(String::class.java).convention(getWsdl2JavaExtension().packageName)
+    val generatedStyle = objects.property(String::class.java)
+
+    @get:Input
+    @Optional
+    val packageName = objects.property(String::class.java)
 
     @get:Classpath
     val wsdl2JavaConfiguration = objects.fileCollection()
@@ -69,7 +68,7 @@ abstract class Wsdl2JavaTask @Inject constructor(
     val xjcPluginsConfiguration = objects.fileCollection()
 
     @get:OutputDirectory
-    val sourcesOutputDir: DirectoryProperty = objects.directoryProperty().convention(getWsdl2JavaExtension().generatedSourceDir)
+    val sourcesOutputDir: DirectoryProperty = objects.directoryProperty()
 
     @Optional
     @get:Nested
@@ -77,7 +76,7 @@ abstract class Wsdl2JavaTask @Inject constructor(
 
     @get:Input
     @Optional
-    val useProcessIsolation = objects.property(Boolean::class.java).convention(getWsdl2JavaExtension().useProcessIsolation)
+    val useProcessIsolation = objects.property(Boolean::class.java)
 
 
     init {
@@ -244,5 +243,4 @@ abstract class Wsdl2JavaTask @Inject constructor(
         }
     }
 
-    private fun getWsdl2JavaExtension() = project.extensions.getByName(WSDL2JAVA_EXTENSION_NAME) as Wsdl2JavaPluginExtension
 }

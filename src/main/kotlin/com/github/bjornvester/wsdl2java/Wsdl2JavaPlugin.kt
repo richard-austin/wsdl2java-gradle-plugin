@@ -57,18 +57,18 @@ class Wsdl2JavaPlugin : Plugin<Project> {
             }))
         }
 
-        val defaultTask = addWsdl2JavaTask(WSDL2JAVA_TASK_NAME, project, extension)
+        val defaultTask = addWsdl2JavaTask(WSDL2JAVA_TASK_NAME, project, extension, extension)
 
         extension.groups.all {
             defaultTask.configure {
                 enabled = false
             }
 
-            addWsdl2JavaTask(WSDL2JAVA_TASK_NAME + name.replaceFirstChar(Char::titlecase), project, this)
+            addWsdl2JavaTask(WSDL2JAVA_TASK_NAME + name.replaceFirstChar(Char::titlecase), project, this, extension)
         }
     }
 
-    private fun addWsdl2JavaTask(name: String, project: Project, group: Wsdl2JavaPluginExtensionGroup): TaskProvider<Wsdl2JavaTask> {
+    private fun addWsdl2JavaTask(name: String, project: Project, group: Wsdl2JavaPluginExtensionGroup, extension: Wsdl2JavaPluginExtension): TaskProvider<Wsdl2JavaTask> {
         val wsdl2JavaTask = project.tasks.register(name, Wsdl2JavaTask::class.java) {
             wsdlInputDir.convention(group.wsdlDir)
             includes.convention(group.includes)
@@ -78,7 +78,9 @@ class Wsdl2JavaPlugin : Plugin<Project> {
             verbose.convention(group.verbose)
             suppressGeneratedDate.convention(group.suppressGeneratedDate)
             markGenerated.convention(group.markGenerated)
+            generatedStyle.convention(group.generatedStyle)
             sourcesOutputDir.convention(group.generatedSourceDir)
+            useProcessIsolation.convention(extension.useProcessIsolation)
             packageName.convention(group.packageName)
             wsdl2JavaConfiguration.from(project.configurations.named(WSDL2JAVA_CONFIGURATION_NAME))
             xjcPluginsConfiguration.from(project.configurations.named(XJC_PLUGINS_CONFIGURATION_NAME))
@@ -89,7 +91,7 @@ class Wsdl2JavaPlugin : Plugin<Project> {
             javaLauncher.convention(currentJvmLauncherProvider)
         }
 
-        val sourceSets = project.properties["sourceSets"] as SourceSetContainer
+        val sourceSets = project.extensions.getByType(SourceSetContainer::class.java)
         sourceSets.named(MAIN_SOURCE_SET_NAME) {
             java.srcDir(wsdl2JavaTask)
         }
