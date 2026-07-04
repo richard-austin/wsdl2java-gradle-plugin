@@ -112,7 +112,6 @@ class Wsdl2JavaPlugin : Plugin<Project> {
         return project.configurations.maybeCreate(name).apply {
             isCanBeConsumed = false
             isCanBeResolved = true
-            isVisible = false
         }
     }
 }
