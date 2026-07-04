@@ -13,7 +13,7 @@ repositories {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -37,7 +37,7 @@ tasks.withType<Wrapper> {
 
 dependencies {
     compileOnly("org.apache.cxf:cxf-tools-wsdlto-core:4.0.2")
-    testImplementation("commons-io:commons-io:2.13.0")
+    testImplementation("commons-io:commons-io:2.14.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")

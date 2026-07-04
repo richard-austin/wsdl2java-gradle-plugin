@@ -9,6 +9,7 @@ repositories {
 // Default dependencies
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
+    testImplementation("org.junit.platform:junit-platform-launcher")
     testImplementation("org.apache.cxf:cxf-rt-frontend-jaxws")
     testImplementation("com.github.tomakehurst:wiremock:2.27.2") // Note that wiremock can't be upgraded to a higher version, nor use the jdk8 variant, as some transitive libraries will not be compatible with this version of CXF
 

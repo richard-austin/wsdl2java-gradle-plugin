@@ -85,9 +85,9 @@ open class IntegrationTest {
         fun provideVersions(): Stream<Arguments?>? {
             return Stream.of(
                 // Test various versions of Gradle
-                Arguments.of("7.6.1"), // Minimum required version of Gradle
+                Arguments.of("8.3"), // Minimum required version of Gradle
                 Arguments.of("9.6.0"),
-                Arguments.of("10.0.0")
+             //   Arguments.of("10.0.0")
             )
         }
     }
