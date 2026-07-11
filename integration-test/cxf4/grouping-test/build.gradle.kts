@@ -1,6 +1,6 @@
 plugins {
-    id("com.github.bjornvester.wsdl2java")
-    id("com.github.bjornvester.wsdl2java.internal.java-conventions-cxf4")
+    id("io.github.richard-austin.wsdl2java")
+    id("io.github.richard-austin.wsdl2java.internal.java-conventions-cxf4")
 }
 
 dependencies {
@@ -12,12 +12,12 @@ wsdl2java {
         register("group1") {
             includes.set(listOf("**/HelloWorldAService.wsdl"))
             options.set(listOf("-wsdlLocation", "MyLocationA"))
-            packageName.set("com.github.bjornvester.wsdl2java.group1")
+            packageName.set("io.github.richard_austin.wsdl2java.group1")
         }
         register("group2") {
             includes.set(listOf("**/HelloWorldBService.wsdl"))
             options.set(listOf("-wsdlLocation", "MyLocationB"))
-            packageName.set("com.github.bjornvester.wsdl2java.group2")
+            packageName.set("io.github.richard_austin.wsdl2java.group2")
         }
     }
 }

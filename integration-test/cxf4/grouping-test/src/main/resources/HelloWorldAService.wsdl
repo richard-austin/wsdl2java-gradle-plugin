@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <wsdl:definitions name="HelloWorldAService"
-                  targetNamespace="http://github.com/bjornvester/example/includes-with-options"
+                  targetNamespace="http://github.io/richard_austin/example/includes-with-options"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:tns="http://github.com/bjornvester/example/includes-with-options"
+                  xmlns:tns="http://github.io/richard_austin/example/includes-with-options"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
     <wsdl:types>
-        <xs:schema targetNamespace="http://github.com/bjornvester/example/includes-with-options"
-                   xmlns="http://github.com/bjornvester/example/includes-with-options"
+        <xs:schema targetNamespace="http://github.io/richard_austin/example/includes-with-options"
+                   xmlns="http://github.io/richard_austin/example/includes-with-options"
                    xmlns:xs="http://www.w3.org/2001/XMLSchema">
             <xs:complexType name="sayHi">
                 <xs:sequence>

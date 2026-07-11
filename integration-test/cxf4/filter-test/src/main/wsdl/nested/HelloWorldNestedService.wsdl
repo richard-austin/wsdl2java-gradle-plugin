@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <wsdl:definitions name="HelloWorldNestedService"
-                  targetNamespace="http://github.com/bjornvester/example/nested"
+                  targetNamespace="http://github.io/richard_austin/example/nested"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:tns="http://github.com/bjornvester/example/nested"
+                  xmlns:tns="http://github.io/richard_austin/example/nested"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
     <wsdl:types>
-        <xs:schema targetNamespace="http://github.com/bjornvester/example/nested"
-                   xmlns="http://github.com/bjornvester/example/nested"
+        <xs:schema targetNamespace="http://github.io/richard_austin/example/nested"
+                   xmlns="http://github.io/richard_austin/example/nested"
                    xmlns:xs="http://www.w3.org/2001/XMLSchema">
             <xs:complexType name="sayHi">
                 <xs:sequence>

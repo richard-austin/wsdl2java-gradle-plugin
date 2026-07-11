@@ -7,7 +7,7 @@ A Gradle plugin for generating Java classes from WSDL files through CXF.
 
 ## Requirements and main features
 
-* The plugin requires Gradle 7.6 or later. (Tested with Gradle 7, 8, 9.6.0, and 10.)
+* The plugin requires Gradle 7.6 or later. (Tested with Gradle 7, 8, 9.6.1, and 10.)
 * For using the Jakarta namespace (default), the plugin requires Java 17 or greater. For the older javax namespace, you can use Java 8, 11 or 17.
 * It supports the Gradle build cache (enabled by setting `org.gradle.caching=true` in your gradle.properties file).
 * It supports the Gradle configuration cache (enabled by setting `org.gradle.configuration-cache=true` in your gradle.properties file").
@@ -22,7 +22,7 @@ Apply the plugin ID "com.github.bjornvester.wsdl2java" as specific in the [Gradl
 
 ```kotlin
 plugins {
-    id("com.github.bjornvester.wsdl2java") version "2.0.2"
+    id("io.github.richard-austin.wsdl2java") version "2.0.3"
 }
 ```
 
@@ -234,7 +234,7 @@ The package name for the generated resources can be configured with the `package
 
 ```kotlin
 wsdl2java {
-    packageName.set("com.github.bjornvester.wsdl2java.group1")
+    packageName.set("io.github.richard_austin.wsdl2java.group1")
 }
 
 ```
@@ -351,12 +351,12 @@ wsdl2java {
         register("group1") {
             includes.set(listOf("**/HelloWorldAService.wsdl"))
             options.set(listOf("-wsdlLocation", "MyLocationA"))
-            packageName.set("com.github.bjornvester.wsdl2java.group1")
+            packageName.set("io.github.richard_austin.wsdl2java.group1")
         }
         register("group2") {
             includes.set(listOf("**/HelloWorldBService.wsdl"))
             options.set(listOf("-wsdlLocation", "MyLocationB"))
-            packageName.set("com.github.bjornvester.wsdl2java.group2")
+            packageName.set("io.github.richard_austin.wsdl2java.group2")
         }
     }
 }
