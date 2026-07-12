@@ -4,6 +4,7 @@ plugins {
 }
 
 dependencies {
+    implementation("javax.annotation:javax.annotation-api:1.3.2")
     implementation("io.github.threeten-jaxb:threeten-jaxb-core:1.2")
 }
 

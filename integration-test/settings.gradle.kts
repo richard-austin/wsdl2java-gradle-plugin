@@ -14,7 +14,7 @@ include(
     "cxf4:utf8-test",
 
 
-    //    "cxf3:bindings-datetime-test",
-//    "cxf3:generated-annotation-test",
-//    "cxf3:xjc-plugins-test"
+    "cxf3:bindings-datetime-test",
+    "cxf3:generated-annotation-test",
+    "cxf3:xjc-plugins-test"
 )

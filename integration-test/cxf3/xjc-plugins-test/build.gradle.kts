@@ -4,6 +4,7 @@ plugins {
 }
 
 dependencies {
+    implementation("javax.annotation:javax.annotation-api:1.3.2")
     implementation("org.jvnet.jaxb2_commons:jaxb2-basics-runtime:1.11.1")
     xjcPlugins("org.jvnet.jaxb2_commons:jaxb2-basics:1.11.1")
 }

@@ -37,18 +37,18 @@ abstract class Wsdl2JavaWorker : WorkAction<Wsdl2JavaWorkerParams> {
                 logger.debug("Fixing the @Generated annotation in file {}", it)
                 var source = it.readText()
 
-                when (parameters.generatedStyle) {
-                    Wsdl2JavaPluginExtension.GENERATED_STYLE_JDK8 -> {
-                        source = source.replaceFirst("import jakarta.annotation.Generated", "import javax.annotation.Generated")
-                    }
-                    Wsdl2JavaPluginExtension.GENERATED_STYLE_JDK9 -> {
-                        source = source.replaceFirst("import jakarta.annotation.Generated", "import javax.annotation.processing.Generated")
-                        source = source.replaceFirst("import javax.annotation.Generated", "import javax.annotation.processing.Generated")
-                    }
-                    Wsdl2JavaPluginExtension.GENERATED_STYLE_JAKARTA -> {
-                        source = source.replaceFirst("import javax.annotation.Generated", "jakarta.annotation.Generated")
-                    }
-                }
+//                when (parameters.generatedStyle) {
+//                    Wsdl2JavaPluginExtension.GENERATED_STYLE_JDK8 -> {
+//                        source = source.replaceFirst("import jakarta.annotation.Generated", "import javax.annotation.Generated")
+//                    }
+//                    Wsdl2JavaPluginExtension.GENERATED_STYLE_JDK9 -> {
+//                        source = source.replaceFirst("import jakarta.annotation.Generated", "import javax.annotation.processing.Generated")
+//                        source = source.replaceFirst("import javax.annotation.Generated", "import javax.annotation.processing.Generated")
+//                    }
+//                    Wsdl2JavaPluginExtension.GENERATED_STYLE_JAKARTA -> {
+//                        source = source.replaceFirst("import javax.annotation.Generated", "jakarta.annotation.Generated")
+//                    }
+//                }
 
                 if (parameters.removeDateFromGeneratedAnnotation) {
                     // Remove the "date" part from the @Generated annotation

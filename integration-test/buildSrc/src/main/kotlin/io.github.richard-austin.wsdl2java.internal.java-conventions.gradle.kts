@@ -16,7 +16,8 @@ dependencies {
     testRuntimeOnly("org.apache.cxf:cxf-rt-transports-http")
     testRuntimeOnly("org.apache.cxf:cxf-rt-transports-http-jetty")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.36")
+  //  testRuntimeOnly("org.slf4j:slf4j-simple:1.7.36")
+    testImplementation("org.slf4j:slf4j-simple:2.0.16")
 }
 
 tasks.test {
