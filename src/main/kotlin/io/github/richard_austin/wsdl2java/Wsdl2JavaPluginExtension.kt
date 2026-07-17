@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 open class Wsdl2JavaPluginExtension @Inject constructor(objects: ObjectFactory, layout: ProjectLayout) : Wsdl2JavaPluginExtensionGroup {
     val useJakarta = objects.property(Boolean::class.java).convention(true)
-    val cxfVersion = objects.property(String::class.java).convention(useJakarta.map { if (it) "4.0.2" else "3.5.6" })
+    val cxfVersion = objects.property(String::class.java).convention(useJakarta.map { if (it) "4.2.2" else "3.5.6" })
     val addCompilationDependencies: Property<Boolean> = objects.property(Boolean::class.java).convention(true)
     val useProcessIsolation: Property<Boolean> = objects.property(Boolean::class.java).convention(true)
 
@@ -46,12 +46,6 @@ open class Wsdl2JavaPluginExtension @Inject constructor(objects: ObjectFactory, 
     companion object {
         @JvmStatic
         val GENERATED_STYLE_DEFAULT = "default"
-
-        @JvmStatic
-        val GENERATED_STYLE_JDK8 = "jdk8"
-
-        @JvmStatic
-        val GENERATED_STYLE_JDK9 = "jdk9"
 
         @JvmStatic
         val GENERATED_STYLE_JAKARTA = "jakarta"

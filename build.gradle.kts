@@ -36,7 +36,7 @@ tasks.withType<Wrapper> {
 }
 
 dependencies {
-    compileOnly("org.apache.cxf:cxf-tools-wsdlto-core:4.0.2")
+    compileOnly("org.apache.cxf:cxf-tools-wsdlto-core:4.2.2")
     testImplementation("commons-io:commons-io:2.14.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
@@ -53,9 +53,9 @@ gradlePlugin {
             displayName = "Gradle Wsdl2Java plugin"
             tags.set(listOf("wsdl2java", "cxf", "wsimport"))
             implementationClass = "io.github.richard_austin.wsdl2java.Wsdl2JavaPlugin"
-            description = "This is a fork of "+
-                          "upgraded to use Gradle 9.6.1 and for compatibility with Gradkle 10"
-                "Changes:\n" +
+            description = "This is a fork of " +
+                    "upgraded to use Gradle 9.6.1 and for compatibility with Gradle 10"
+            "Changes:\n" +
                     "  - Fixed missing task dependency on wsdl2java from sourcesJar"
         }
     }

@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("org.apache.cxf:cxf-bom:4.0.2"))
+    implementation(platform("org.apache.cxf:cxf-bom:4.2.2"))
     testRuntimeOnly("jakarta.xml.bind:jakarta.xml.bind-api:3.0.1")
 }
 

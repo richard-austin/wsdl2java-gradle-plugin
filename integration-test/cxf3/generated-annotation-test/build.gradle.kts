@@ -11,5 +11,5 @@ dependencies {
 wsdl2java {
     useJakarta.set(false)
     markGenerated.set(true)
-    generatedStyle.set("jdk8")
+    generatedStyle.set("default")
 }

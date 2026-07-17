@@ -2,8 +2,6 @@ package io.github.richard_austin.wsdl2java
 
 import io.github.richard_austin.wsdl2java.Wsdl2JavaPluginExtension.Companion.GENERATED_STYLE_DEFAULT
 import io.github.richard_austin.wsdl2java.Wsdl2JavaPluginExtension.Companion.GENERATED_STYLE_JAKARTA
-import io.github.richard_austin.wsdl2java.Wsdl2JavaPluginExtension.Companion.GENERATED_STYLE_JDK8
-import io.github.richard_austin.wsdl2java.Wsdl2JavaPluginExtension.Companion.GENERATED_STYLE_JDK9
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
 import org.gradle.api.file.DirectoryProperty
@@ -107,8 +105,10 @@ abstract class Wsdl2JavaTask @Inject constructor(
         val defaultArgs = buildDefaultArguments()
         val wsdlToArgs = mutableMapOf<String, List<String>>()
 
+//        logger.error("includesWithOptions.isPresent ${includesWithOptions.isPresent} includesWithOptions.get().isNotEmpty() ${includesWithOptions.get().isNotEmpty()}")
         if (includesWithOptions.isPresent && includesWithOptions.get().isNotEmpty()) {
             includesWithOptions.get().forEach { (includePattern, includeOptions) ->
+                @Suppress("UNCHECKED_CAST")
                 addWsdlToArgs(listOf(includePattern), defaultArgs + includeOptions as List<String>, wsdlToArgs)
             }
         } else {
@@ -219,7 +219,7 @@ abstract class Wsdl2JavaTask @Inject constructor(
     }
 
     private fun validateOptions() {
-        val supportedGeneratedStyleValues = listOf(GENERATED_STYLE_DEFAULT, GENERATED_STYLE_JDK8, GENERATED_STYLE_JDK9, GENERATED_STYLE_JAKARTA)
+        val supportedGeneratedStyleValues = listOf(GENERATED_STYLE_DEFAULT, GENERATED_STYLE_JAKARTA)
         if (generatedStyle.get() !in supportedGeneratedStyleValues) {
             throw GradleException("The property 'markGenerated' had an invalid value '${markGenerated.get()}'. Supported values are: $supportedGeneratedStyleValues")
         }
