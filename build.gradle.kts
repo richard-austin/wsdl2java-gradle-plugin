@@ -1,7 +1,7 @@
 plugins {
     `kotlin-dsl`
     id("java-gradle-plugin")
-    id("com.gradle.plugin-publish") version "1.2.0"
+    id("com.gradle.plugin-publish") version "2.1.1"
 }
 
 group = "io.github.richard-austin"
