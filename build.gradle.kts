@@ -46,17 +46,15 @@ dependencies {
 
 gradlePlugin {
     website.set("https://github.com/richard-austin/wsdl2java-gradle-plugin")
-    vcsUrl.set("https://github.com/richard-austin/wsdl2java-gradle-plugin")
+    vcsUrl.set("https://github.com/richard-austin/wsdl2java-gradle-plugin.git")
     plugins {
         create("wsdl2JavaPlugin") {
             id = "io.github.richard-austin.wsdl2java"
             displayName = "Gradle Wsdl2Java plugin"
             tags.set(listOf("wsdl2java", "cxf", "wsimport"))
             implementationClass = "io.github.richard_austin.wsdl2java.Wsdl2JavaPlugin"
-            description = "This is a fork of " +
-                    "upgraded to use Gradle 9.6.1 and for compatibility with Gradle 10"
-            "Changes:\n" +
-                    "  - Fixed missing task dependency on wsdl2java from sourcesJar"
-        }
+            description = "This is a fork of com.github.bjornvester.wsdl2java version 2.0.2, modified to support Gradle 10.\n" +
+                    "upgraded to use Gradle 9.6.1 and for compatibility with Gradle 10."
+       }
     }
 }

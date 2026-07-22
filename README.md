@@ -5,10 +5,13 @@
 
 A Gradle plugin for generating Java classes from WSDL files through CXF.
 
+This is a fork of com.github.bjornvester.wsdl2java version 2.0.2 (https://github.com/bjornvester/wsdl2java-gradle-plugin) updated to support 
+Gradle 10 and now requires consumers to use Java 17 or greater. 
+
 ## Requirements and main features
 
-* The plugin requires Gradle 7.6 or later. (Tested with Gradle 7, 8, 9.6.1, and 10.)
-* For using the Jakarta namespace (default), the plugin requires Java 17 or greater. For the older javax namespace, you can use Java 8, 11 or 17.
+* The plugin requires Gradle 8.3 or later. (Tested with Gradle 8.3 and 9.6.1)
+* The plugin requires Java 17 or greater for both the older javax and jakarta namespaces.
 * It supports the Gradle build cache (enabled by setting `org.gradle.caching=true` in your gradle.properties file).
 * It supports the Gradle configuration cache (enabled by setting `org.gradle.configuration-cache=true` in your gradle.properties file").
 * It supports project relocation for the build cache (e.g. you move your project to a new path, or make a new copy/clone of it).
@@ -383,8 +386,3 @@ Especially the `ObjectFactory` class might be overwritten, which is very annoyin
 When CXF generates an `ObjectFactory` class, the order of the methods are not deterministic, but depend on the absolute path of the input files.
 This may cause misses in the Gradle build cache, which may propagate to downstream projects, resulting in long build times.
 See https://issues.apache.org/jira/browse/XMLSCHEMA-65 for more information.
-
-## Contributions
-
-I often feel a bit stretched out in terms of maintaining this and my other projects.
-For that reason, I might not respond to issues and PRs very often.
