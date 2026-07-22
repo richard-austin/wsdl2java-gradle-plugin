@@ -53,8 +53,7 @@ gradlePlugin {
             displayName = "Gradle Wsdl2Java plugin"
             tags.set(listOf("wsdl2java", "cxf", "wsimport"))
             implementationClass = "io.github.richard_austin.wsdl2java.Wsdl2JavaPlugin"
-            description = "This is a fork of com.github.bjornvester.wsdl2java version 2.0.2, modified to support Gradle 10.\n" +
-                    "upgraded to use Gradle 9.6.1 and for compatibility with Gradle 10."
+            description = "This is a fork of com.github.bjornvester.wsdl2java version 2.0.2, modified to support Gradle 10 and the configuration cache."
        }
     }
 }
